@@ -19,6 +19,16 @@ include.loadStylesheet = function(c) {
     include.injector.inject(link);
     return link;
 };
+include.loadStylesheetDelayed = function (c, delay) {
+    setTimeout(function() {
+        loadScript(c);
+    }, delay);
+};
+include.loadScriptDelayed = function (c, delay) {
+    setTimeout(function() {
+        loadScript(c);
+    }, delay);
+};
 include.injector.inject = function(b) {
     document.getElementsByTagName(include.settings.injectInto)[0].appendChild(b)
 };
