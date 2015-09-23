@@ -9,13 +9,15 @@ include.loadScript = function(c) {
     d.type = "text/javascript";
     d.src = c;
     include.injector.inject(d);
-    return d
+    return d;
 };
 include.loadStylesheet = function(c) {
-    var d = document.createElement("link");
-    d.href = c;
-    include.injector.inject(d);
-    return d
+    var link = document.createElement("link");
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('type', 'text/css');
+    link.setAttribute('href', c);
+    include.injector.inject(link);
+    return link;
 };
 include.injector.inject = function(b) {
     document.getElementsByTagName(include.settings.injectInto)[0].appendChild(b)
