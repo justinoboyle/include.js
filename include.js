@@ -13,9 +13,7 @@ include.loadScript = function(c) {
 };
 include.loadStylesheet = function(c) {
     var d = document.createElement("link");
-    d.type = "text/css";
     d.href = c;
-    d.media = "screen";
     include.injector.inject(d);
     return d
 };
