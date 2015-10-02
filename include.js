@@ -56,6 +56,7 @@ include.loadGeneric = function(file, callback) {
     xmlHttp.send(null);
 }
 
+// Experimental.
 include.processPage = function (callback) {
     var divs = document.getElementsByClassName("!include");
     var counter = divs.length;
