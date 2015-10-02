@@ -1,9 +1,16 @@
+"use strict";
+
 var include = {};
+
+include.js = include;
 include.injector = {};
 include.settings = {};
+
 include.settings.injectInto = "head";
+
 include.srcLink = "https://github.com/justinoboyle/include.js";
 include.author = "Justin O'Boyle & GitHub Community at " + include.srcLink;
+
 var idScript = 0;
 include.loadScript = function(c) {
     idScript++;
@@ -47,6 +54,12 @@ include.loadGeneric = function(file, callback) {
     }
     xmlHttp.open("GET", file, true); 
     xmlHttp.send(null);
+}
+
+include.processPage = function (callback) {
+    var divs = document.getElementsByClassName("!include");
+    var counter = divs.length;
+    while (counter-- >= 0) callback(divs[counter]);     
 }
 
 include.injector.inject = function(b) {
