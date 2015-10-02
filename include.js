@@ -4,20 +4,25 @@ include.settings = {};
 include.settings.injectInto = "head";
 include.srcLink = "https://github.com/justinoboyle/include.js";
 include.author = "Justin O'Boyle & GitHub Community at " + include.srcLink;
-
+var idScript = 0;
 include.loadScript = function(c) {
+    idScript++;
     var d = document.createElement("script");
     d.type = "text/javascript";
     d.src = c;
+    d.setAttribute('id', 'script' + idScript);
     include.injector.inject(d);
     return d;
 };
 
+var idStyle = 0;
 include.loadStylesheet = function(c) {
+    idStyle++;
     var link = document.createElement("link");
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('type', 'text/css');
     link.setAttribute('href', c);
+    link.setAttribute('id', 'style' + idStyle);
     include.injector.inject(link);
     return link;
 };
